@@ -1,0 +1,63 @@
+GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
+
+? problems for the advanced students
+	! pesho.org problems
+	* traverse a matrix spirally
+! upload implementations in github
+! read esprit's article on complexity
+
+1. Algorithms complexity
+	* pesho and marin's presentation
+
+2. Data structures
+	* stack
+		- correct bracket sequnce problem
+	
+	* queue
+		? implementation for exercise
+	
+	* linkedList (doubly)
+
+	* binarySearchTree
+		- what's a tree, binary tree, full binary tree, balanced tree
+		- whiteboard explanation
+		- live implementation (set)
+		- https://www.cs.usfca.edu/~galles/visualization/AVLtree.html
+	
+	* hash table
+
+	* java collections
+
+3. Algorithms
+	* sorting
+		- what's in-place sorting, stable sorting
+		? bubbleSort
+		- selectionSort
+		- mergeSort
+			? iterative / recursive
+		- quickSort 
+			- how to choose the pivot
+			- how to partition
+			- complexity analysis
+	
+	* seraching
+		- linear serach
+		- binary search
+
+	? Greedy algs
+
+	* Graph algs
+		- BFS
+		- DFS
+		- gps problem
+
+	? competitive programming
+		? marin's lecture
+		pesho.org
+			+ geekycamp group
+			+ find problems
+			? live problems
+			? homework
+		? codeForces
+
+	? Dynamic programming
