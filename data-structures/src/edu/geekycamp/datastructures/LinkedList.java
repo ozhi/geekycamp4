@@ -2,12 +2,12 @@ package edu.geekycamp.datastructures;
 
 // ? iterator
 
-public class LinkedList {
+public class LinkedList<E> {
 	private class Node {
-		public int data;
+		public E data;
 		public Node prev, next;
 		
-		public Node(int data, Node prev, Node next) {
+		public Node(E data, Node prev, Node next) {
 			this.data = data;
 			this.prev = prev;
 			this.next = next;
@@ -30,11 +30,11 @@ public class LinkedList {
 		return size;
 	}
 	
-	public int get(int index) {
+	public E get(int index) {
 		return getNode(index).data;
 	}
 	
-	public int pop(int index) {
+	public E pop(int index) {
 		Node node = getNode(index);
 		
 		size--;
@@ -53,22 +53,14 @@ public class LinkedList {
 			back = back.prev;
 			return node.data;
 		}
-		
-		
-		// variant 1
-//		Node prev = node.prev;
-//		Node next = node.next;
-//		prev.next = next;
-//		next.prev = prev;
-		
-		//variant 2
+
 		node.prev.next = node.next;
 		node.next.prev = node.prev;
 		
 		return node.data;
 	}
 	
-	public void pushBack(int value) {
+	public void pushBack(E value) {
 		Node node = new Node(value, null, null);
 		
 		if(isEmpty()) {
@@ -83,7 +75,7 @@ public class LinkedList {
 		back = node;
 	}
 	
-	public void pushBefore(int index, int value) {
+	public void pushBefore(int index, E value) {
 		if(index == 0) {
 			Node node = new Node(value, null, front);
 			size++;
@@ -104,7 +96,7 @@ public class LinkedList {
 		Node node = front;
 		
 		while(node != null) {
-			System.out.print(Integer.toString(node.data) + " ");
+			System.out.print(node.data.toString() + " ");
 			node = node.next;
 		}
 		System.out.println();

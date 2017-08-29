@@ -9,12 +9,12 @@ package edu.geekycamp.datastructures;
  * 		The difference in height of two siblings is <= 1
 */
 
-public class BST {
-	private int data;
+public class AVL<E extends Comparable<E>> {
+	private E data;
 	private int height;
-	private BST left, right;
+	private AVL<E> left, right;
 
-	private BST(int data, BST left, BST right) {
+	private AVL(E data, AVL<E> left, AVL<E> right) {
 		this.data = data;
 		this.left = left;
 		this.right = right;
@@ -25,25 +25,25 @@ public class BST {
 		int heightDiff = left.height - right.height;
 
 		if(heightDiff > 1) {
-			BST bst1 = left.left;
-			BST bst2 = left.right;
-			BST bst3 = right;
-			int data1 = left.data;
-			int data2 = data;
+			AVL<E> bst1 = left.left;
+			AVL<E> bst2 = left.right;
+			AVL<E> bst3 = right;
+			E data1 = left.data;
+			E data2 = data;
 			
 			left = bst1;
 			data = data1;
-			right = new BST(data2, bst2, bst3);
+			right = new AVL<E>(data2, bst2, bst3);
 		}
 		
 		else if(heightDiff < -1){
-			BST t1 = left;
-			BST t2 = right.left;
-			BST t3 = right.right;
-			int d1 = data;
-			int d2 = right.data;
+			AVL<E> t1 = left;
+			AVL<E> t2 = right.left;
+			AVL<E> t3 = right.right;
+			E d1 = data;
+			E d2 = right.data;
 			
-			left = new BST(d1, t1, t2);
+			left = new AVL<E>(d1, t1, t2);
 			data = d2;
 			right = t3;
 		}
@@ -51,7 +51,7 @@ public class BST {
 		height = Math.max(left.height, right.height) + 1;
 	}
 	
-	public BST() {
+	public AVL() {
 		height = 0;
 		left = right = null;
 	}
@@ -60,7 +60,7 @@ public class BST {
 		return (height == 0);
 	}
 	
-	public boolean contains(int value) {
+	public boolean contains(E value) {
 		if(isEmpty()) {
 			return false;
 		}
@@ -69,15 +69,15 @@ public class BST {
 			return true;
 		}
 		
-		return (value < data ? left : right).contains(value);
+		return (value.compareTo(data) < 0 ? left : right).contains(value);
 	}
 	
-	public void add(int value) {
+	public void insert(E value) {
 		if(isEmpty()) {
 			this.data = value;
 			height = 1;
-			left = new BST();
-			right = new BST();
+			left = new AVL<E>();
+			right = new AVL<E>();
 			return;
 		}
 		
@@ -85,20 +85,20 @@ public class BST {
 			return;
 		}
 		
-		(value < data ? left : right).add(value);
+		(value.compareTo(data) < 0 ? left : right).insert(value);
 		
 		balance();
 		
 		this.height = Math.max(left.height, right.height) + 1;
 	}
 	
-	public void remove(int value) {
+	public void remove(E value) { // NOTE: this is not he standard AVL remove
 		if(isEmpty()) {
 			return;
 		}
 		
-		if(value == data) {			
-			BST higherChild = (left.height > right.height ? left : right);
+		if(value.compareTo(data) == 0) {			
+			AVL<E> higherChild = (left.height > right.height ? left : right);
 			
 			data = higherChild.data;
 			
@@ -110,8 +110,10 @@ public class BST {
 			}
 			
 			higherChild.remove(data);
-		} else {
-			(value < data ? left : right).remove(value);
+		} else if(value.compareTo(data) < 0){
+			left.remove(value);
+		} else if(value.compareTo(data) > 0){
+			right.remove(value);
 		}
 		
 		this.height = Math.max(left.height, right.height) + 1;

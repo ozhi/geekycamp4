@@ -1,11 +1,11 @@
 package edu.geekycamp.datastructures;
 
-public class Queue {
+public class Queue<E> {
 	private class Node {
-		public int data;
+		public E data;
 		public Node next;
 		
-		public Node(int data, Node next) {
+		public Node(E data, Node next) {
 			this.data = data;
 			this.next = next;
 		}
@@ -27,7 +27,7 @@ public class Queue {
 		return size;
 	}
 	
-	public int front() {
+	public E front() {
 		if(isEmpty()) {
 			throw new RuntimeException("Cannot get front: queue is empty");
 		}
@@ -35,28 +35,33 @@ public class Queue {
 		return front.data;
 	}
 	
-	public void push(int value) {
+	public void push(E value) {
 		Node node = new Node(value, null);
 		
-		size++;
-		
 		if(isEmpty()) {
+			size = 1;
 			front = back = node;
 			return;
 		}
 		
+		size++;
+
 		back.next = node;
 		back = node;
 	}
 	
-	public int pop() {
+	public E pop() {
 		if(isEmpty()) {
 			throw new RuntimeException("Cannot pop: queue is empty");
 		}
 		
-		int value = front.data;
+		E value = front.data;
 		front = front.next;
 		size--;
+		
+		if(isEmpty()) {
+			front = back = null;
+		}
 		
 		return value;
 	}

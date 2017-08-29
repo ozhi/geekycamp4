@@ -1,75 +1,80 @@
 import edu.geekycamp.datastructures.Stack;
 import edu.geekycamp.datastructures.Queue;
 import edu.geekycamp.datastructures.LinkedList;
+import edu.geekycamp.datastructures.AVL;
 
 import java.util.Arrays;
 import java.util.List;
 
-import edu.geekycamp.datastructures.BST;
-
 public class Main {
 	static void testStack() {
-		Stack s = new Stack();
+		Stack<Integer> s = new Stack<Integer>();
 		
 		System.out.println(s.isEmpty());
 		
-		for(int i = 1; i < 10; i++)
+		for(int i = 1; i < 10; i++) {
 			s.push(i);
+		}
 		
 		while(!s.isEmpty()) {
 			System.out.println(s.pop());
 		}
 		
+		s.push(10);
+		
 		try {
-			s.pop();
+			System.out.println(s.pop());
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	
 	static void testQueue() {
-		Queue q = new Queue();
+		Queue<String> q = new Queue<String>();
 		
 		System.out.println(q.isEmpty());
 		
-		for(int i = 1; i < 10; i++)
-			q.push(i);
+		for(int i = 1; i < 10; i++) {
+			q.push(Integer.toString(i));
+		}
 		
 		while(!q.isEmpty()) {
 			System.out.println(q.pop());
 		}
 		
+		q.push("10");
+		
 		try {
-			q.pop();
+			System.out.println(q.pop());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	
 	static void testLinkedList() {
-		LinkedList l = new LinkedList();
+		LinkedList<Double> l = new LinkedList<Double>();
 		
-		for(int i = 1; i < 10; i++) {
+		for(double i = 0.5; i < 10; i++) {
 			l.pushBack(i);
 		}
 		
 		l.print();
-		l.pushBefore(0, 0);
-		l.pushBefore(6, 55);
+		l.pushBefore(0, new Double(0));
+		l.pushBefore(6, new Double(5));
 		l.print();
 		l.pop(7);
 		l.print();
 	}
 	
-	static void testBinarySearchTree() {
-		BST bst = new BST();
+	static void testAVL() {
+		AVL<Character> bst = new AVL<Character>();
 		
-		//List<Integer> values = Arrays.asList(5,2,8,1,4,3,7,6,9);
-		//List<Integer> values = Arrays.asList(1,2,3,4,5,6,7);
-		List<Integer> values = Arrays.asList(8,4,2,1,3,6,5,7,9,10,11,12,13,14);
+		List<Character> helloWorld = Arrays.asList('h','e','l','l','o','w','o','r','l','d');
+		List<Character> geekyCamp = Arrays.asList('g','e','e','k','y','c','a','m','p');
+		List<Character> alphabet = Arrays.asList('a','b','c','d','e','f','g','h','i','j','k','l','m');
 		
-		for(int i = 0; i < values.size(); i++) {
-			bst.add(values.get(i));
+		for(int i = 0; i < alphabet.size(); i++) {
+			bst.insert(alphabet.get(i));
 		}
 		
 		bst.print();
@@ -79,6 +84,6 @@ public class Main {
 //		testStack();
 //		testQueue();
 //		testLinkedList();
-		testBinarySearchTree();
+		testAVL();
 	}
 }

@@ -1,13 +1,11 @@
 package edu.geekycamp.datastructures;
 
-// ! class is not generic
-
-public class Stack {
+public class Stack<E> {
 	private class Node {
-		public int data;
+		public E data;
 		public Node next;
 		
-		public Node(int data, Node next) {
+		public Node(E data, Node next) {
 			this.data = data;
 			this.next = next;
 		}
@@ -29,7 +27,7 @@ public class Stack {
 		return size;
 	}
 	
-	public int top() {
+	public E top() {
 		if(isEmpty()) {
 			throw new RuntimeException("Cannot get top: stack is empty");
 		}
@@ -37,17 +35,17 @@ public class Stack {
 		return top.data;
 	}
 	
-	public void push(int value) {
+	public void push(E value) {
 		Node node = new Node(value, top);
 		top = node;
 		size++;
 	}
 	
-	public int pop() {
+	public E pop() {
 		if(isEmpty()) {
 			throw new RuntimeException("Cannot pop: stack is empty");
 		}
-		int value = top.data;
+		E value = top.data;
 		top = top.next;
 		size--;
 		return value;
