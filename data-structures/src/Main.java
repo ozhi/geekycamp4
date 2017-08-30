@@ -2,6 +2,7 @@ import edu.geekycamp.datastructures.Stack;
 import edu.geekycamp.datastructures.Queue;
 import edu.geekycamp.datastructures.LinkedList;
 import edu.geekycamp.datastructures.AVL;
+import edu.geekycamp.datastructures.HashTable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -80,10 +81,43 @@ public class Main {
 		bst.print();
 	}
 	
+	static void testHashTable() {
+		HashTable<Book> map = new HashTable<Book>();
+		
+		Book hamlet = new Book("Hamlet", "William Shakespeare", 1987);
+		Book tales = new Book("Fairy Tales", "Grimm Brothers", 2007);
+		Book robinson = new Book("Robinson Crusoe", "Daniel Defoe", 1993);
+		Book robinsonCopy = new Book("Robinson Crusoe", "Daniel Defoe", 1993);
+		
+		map.insert(hamlet);
+		map.insert(tales);
+		map.insert(robinson);
+		
+		System.out.println("Map size: " + Integer.toString(map.size()));
+		System.out.println(map.contains(robinsonCopy));
+	}
+	
+	static void testHashTable2() {
+		HashTable<Book> map = new HashTable<Book>();
+		
+		for(int i = 0; i < 200; i++) {
+			Book book = new Book("Book" + Integer.toString(i), "author", 2017);
+			map.insert(book);
+		}
+		
+		System.out.println("Map size: " + Integer.toString(map.size()));
+		map.insert(new Book("Book42", "author", 2017));
+		System.out.println("Map size: " + Integer.toString(map.size()));
+		map.remove(new Book("Book42", "author", 2017));
+		System.out.println("Map size: " + Integer.toString(map.size()));
+	}
+	
 	public static void main(String[] args) {
 //		testStack();
 //		testQueue();
 //		testLinkedList();
-		testAVL();
+//		testAVL();
+		testHashTable();
+		testHashTable2();
 	}
 }

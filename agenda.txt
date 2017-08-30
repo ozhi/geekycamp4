@@ -2,29 +2,41 @@ GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
 
 ? problems for the advanced students
 	! pesho.org problems
+	* http://www.informatika.bg/interviews
 	* traverse a matrix spirally
-! upload implementations in github
+
 ! read esprit's article on complexity
 
 1. Algorithms complexity
-	* pesho and marin's presentation
+	? pesho and marin's presentation
+	* what is amortised complexity
 
 2. Data structures
+	* https://visualgo.net/en
+
 	* stack
 		- correct bracket sequnce problem
 	
 	* queue
 		? implementation for exercise
 	
-	* linkedList (doubly)
+	* list
+		- arrayList
+		- linkedList (singly / doubly)
 
-	* binarySearchTree
-		- what's a tree, binary tree, full binary tree, balanced tree
-		- whiteboard explanation
-		- live implementation (set)
+	* AVL tree
+		- what's a tree, binary tree, full binary tree
+		- binary search tree
+		- self-balancing tree
 		- https://www.cs.usfca.edu/~galles/visualization/AVLtree.html
 	
-	* hash table
+	* hash tables
+		-
+			 AVL HashTable
+	  insert log     1
+	contains log     1
+	  remove log     1
+	  		      amortised?
 
 	* java collections
 
