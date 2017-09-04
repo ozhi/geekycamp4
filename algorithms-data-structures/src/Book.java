@@ -18,7 +18,11 @@ public class Book {
 	public void setTitle(String title)   { this.title = title; }
 	public void setYear(int year)        { this.year = year; }
 	
-
+	@Override
+	public String toString() {
+		return "Book [title=" + title + ", author=" + author + ", year=" + year + "]";
+	}
+	
 	private static int hashCode(String s) { // not using String.hashCode() for demonstration purposes
 		int prime = 31;
 		int primePower = 1;

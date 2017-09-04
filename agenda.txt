@@ -21,7 +21,11 @@ GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
 		? implementation for exercise
 	
 	* list
+		- vs array
 		- arrayList
+			- exact fit
+			- expand by some blocksize
+			- expand by doubling in size
 		- linkedList (singly / doubly)
 
 	* AVL tree
@@ -38,14 +42,21 @@ GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
 	  remove log     1
 	  		      amortised?
 
+	  	- separate chaining
+	  		- with linked list (my impl)
+	  		- with self-balancing BST (Java 8 HashMap impl)
+	  	- open addressing (address does not corresponf to hash valu)e
+
 	* java collections
 
 3. Algorithms
 	* sorting
 		- what's in-place sorting, stable sorting
+		? contingSort
 		? bubbleSort
 		- selectionSort
 		- mergeSort
+			- Divide and Conquer
 			? iterative / recursive
 		- quickSort 
 			- how to choose the pivot
@@ -73,3 +84,8 @@ GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
 		? codeForces
 
 	? Dynamic programming
+
+
+
+Abstract Data Types vs Data Structures
+https://docs.oracle.com/javase/tutorial/collections/

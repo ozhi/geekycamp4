@@ -34,7 +34,7 @@ public class LinkedList<E> {
 		return getNode(index).data;
 	}
 	
-	public E pop(int index) {
+	public E remove(int index) {
 		Node node = getNode(index);
 		
 		size--;

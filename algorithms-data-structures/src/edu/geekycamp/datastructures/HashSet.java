@@ -2,13 +2,17 @@ package edu.geekycamp.datastructures;
 
 import java.util.ArrayList;
 
-public class HashTable<E> {	
+/*
+ * Hash set which resolves collisions with separate chaining with LinkedLists
+ */
+
+public class HashSet<E> {	
 	private static final int MOD = 101;
 	private int size;
 
 	private ArrayList<LinkedList<E>> map = new ArrayList<LinkedList<E>>();
 
-	public HashTable() {
+	public HashSet() {
 		for(int i = 0; i < MOD; i++) {
 			map.add(new LinkedList<E>());
 		}
@@ -55,7 +59,7 @@ public class HashTable<E> {
 		
 		for(int i = 0; i < bucketSize; i++) {
 			if(element.equals(bucket.get(i))) {
-				bucket.pop(i);
+				bucket.remove(i);
 				size--;
 				return;
 			}

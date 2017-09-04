@@ -2,8 +2,12 @@ import edu.geekycamp.datastructures.Stack;
 import edu.geekycamp.datastructures.Queue;
 import edu.geekycamp.datastructures.LinkedList;
 import edu.geekycamp.datastructures.AVL;
+import edu.geekycamp.datastructures.HashSet;
 import edu.geekycamp.datastructures.HashTable;
 
+import edu.geekycamp.algorithms.Sorting;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -63,7 +67,7 @@ public class Main {
 		l.pushBefore(0, new Double(0));
 		l.pushBefore(6, new Double(5));
 		l.print();
-		l.pop(7);
+		l.remove(7);
 		l.print();
 	}
 	
@@ -81,35 +85,55 @@ public class Main {
 		bst.print();
 	}
 	
-	static void testHashTable() {
-		HashTable<Book> map = new HashTable<Book>();
+	static void testHashSet() {
+		HashSet<Book> set = new HashSet<Book>();
 		
 		Book hamlet = new Book("Hamlet", "William Shakespeare", 1987);
 		Book tales = new Book("Fairy Tales", "Grimm Brothers", 2007);
 		Book robinson = new Book("Robinson Crusoe", "Daniel Defoe", 1993);
 		Book robinsonCopy = new Book("Robinson Crusoe", "Daniel Defoe", 1993);
 		
-		map.insert(hamlet);
-		map.insert(tales);
-		map.insert(robinson);
+		set.insert(hamlet);
+		set.insert(tales);
+		set.insert(robinson);
 		
-		System.out.println("Map size: " + Integer.toString(map.size()));
-		System.out.println(map.contains(robinsonCopy));
+		System.out.println("Map size: " + Integer.toString(set.size()));
+		System.out.println(set.contains(robinsonCopy));
 	}
 	
-	static void testHashTable2() {
-		HashTable<Book> map = new HashTable<Book>();
+	static void testHashTable() {
+		HashTable<String, Book> map = new HashTable<String, Book>();
 		
-		for(int i = 0; i < 200; i++) {
-			Book book = new Book("Book" + Integer.toString(i), "author", 2017);
-			map.insert(book);
-		}
+		map.insert("favourite", new Book("Hamlet", "William Shakespeare", 1967));
+		map.insert("borrowed", new Book("Hamlet", "William Shakespeare", 1967));
+		map.insert("robinson", new Book("Robinson Crusoe", "Daniel Defoe", 1991));
 		
-		System.out.println("Map size: " + Integer.toString(map.size()));
-		map.insert(new Book("Book42", "author", 2017));
-		System.out.println("Map size: " + Integer.toString(map.size()));
-		map.remove(new Book("Book42", "author", 2017));
-		System.out.println("Map size: " + Integer.toString(map.size()));
+		System.out.println(map.size());
+		
+		map.insert("favourite", new Book("Animal Farm", "George Orwell", 2003));
+		
+		System.out.println(map.size());
+		
+		System.out.println(map.get("favourite").toString());
+	}
+	
+	static void testSorting() {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		list.add(5);
+		list.add(3);
+		list.add(2);
+		list.add(4);
+		list.add(1);
+		list.add(8);
+		list.add(6);
+		list.add(9);
+		list.add(7);
+		
+//		Sorting.selectionSort(list);
+		Sorting.mergeSort(list);
+		
+		Sorting.print(list);
 	}
 	
 	public static void main(String[] args) {
@@ -117,7 +141,9 @@ public class Main {
 //		testQueue();
 //		testLinkedList();
 //		testAVL();
-		testHashTable();
-		testHashTable2();
+//		testHashSet();
+//		testHashTable();
+		
+//		testSorting();	
 	}
 }
