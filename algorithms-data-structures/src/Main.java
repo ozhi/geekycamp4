@@ -123,17 +123,21 @@ public class Main {
 		list.add(5);
 		list.add(3);
 		list.add(2);
-		list.add(4);
 		list.add(1);
+		list.add(4);
 		list.add(8);
 		list.add(6);
 		list.add(9);
 		list.add(7);
 		
-//		Sorting.selectionSort(list);
-		Sorting.mergeSort(list);
-		
 		Sorting.print(list);
+		
+//		Sorting.selectionSort(list);
+//		Sorting.mergeSort(list, 0, list.size());
+		Sorting.quickSort(list, 0, list.size());
+		Sorting.print(list);
+		
+//		System.out.println(Sorting.binarySearch(list, 0, list.size(), 10));
 	}
 	
 	public static void main(String[] args) {
@@ -144,6 +148,6 @@ public class Main {
 //		testHashSet();
 //		testHashTable();
 		
-//		testSorting();	
+		testSorting();	
 	}
 }

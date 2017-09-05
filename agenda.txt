@@ -84,8 +84,3 @@ GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
 		? codeForces
 
 	? Dynamic programming
-
-
-
-Abstract Data Types vs Data Structures
-https://docs.oracle.com/javase/tutorial/collections/
