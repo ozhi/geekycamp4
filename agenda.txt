@@ -15,7 +15,7 @@ GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
 	* https://visualgo.net/en
 
 	* stack
-		- correct bracket sequnce problem
+		- correct bracket sequence problem
 	
 	* queue
 		? implementation for exercise
@@ -84,3 +84,13 @@ GeekyCamp 4.0 - Algorithms & Data Structures Lecture:
 		? codeForces
 
 	? Dynamic programming
+
+Complexity     9:30 - 10:00
+selection sort 10:00
+merge sort
+quick sort           - 11:00
+searching      11:00 - 11:30
+linked list    11:30 - 12:30
+avl            13:30 - 14:30
+hashSet		   14:30  -15:30
+hashMap
